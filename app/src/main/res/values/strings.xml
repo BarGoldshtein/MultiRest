@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">MultiRest</string>
+    <string name="title_activity_client_activity">client_activity</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
+</resources>
