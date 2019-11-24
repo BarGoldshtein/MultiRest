@@ -28,7 +28,7 @@
                 android:ems="10"
                 android:inputType="textPersonName"
                 android:text="הכנס שם מנה:"
-                android:textSize="40SP" />
+                android:textSize="40sp" />
         </LinearLayout>
 
         <LinearLayout
