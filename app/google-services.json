@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "315748432861",
+    "firebase_url": "https://multirest-1b342.firebaseio.com",
+    "project_id": "multirest-1b342",
+    "storage_bucket": "multirest-1b342.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:315748432861:android:b4a5f450ef620edc965434",
+        "android_client_info": {
+          "package_name": "com.example.multirest"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "315748432861-ihpdrefurcv0bpbdoqdhvv9r1j31k9ct.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAlgvY4T-V3BvEXDjlZMcoayBYmN0S7Zt8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "315748432861-ihpdrefurcv0bpbdoqdhvv9r1j31k9ct.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
