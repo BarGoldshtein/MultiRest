@@ -1,21 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/backgrounds"
+    android:layout_gravity="center"
+
+
 
     tools:context=".splash_screen">
-
-
-    <ImageView
-        android:id="@+id/imageView2"
-
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:srcCompat="@drawable/fydf" />
+        android:layout_height="match_parent"
+        android:gravity="center">
+
+        <ImageView android:layout_width="wrap_content"
+            android:id="@+id/imageView1"
+            android:src="@drawable/fydf"
+            android:layout_height="wrap_content"
+            android:scaleY=".50"
+            android:scaleX=".50"
+            android:scaleType="centerInside" />
+    </LinearLayout>
 
 
+</LinearLayout>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+
