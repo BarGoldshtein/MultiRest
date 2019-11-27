@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bbfb19e69317dc6d1b8b9e1692cfe1c4"
+    android:layout_gravity="center"
+
+
+
+    tools:context=".splash_screen">
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center">
+
+        <ImageView android:layout_width="wrap_content"
+            android:id="@+id/imageView1"
+            android:src="@drawable/fydf"
+            android:layout_height="wrap_content"
+            android:scaleY=".50"
+            android:scaleX=".50"
+            android:scaleType="centerInside" />
+
+        <TextView
+            android:id="@+id/textView"
+            style="@android:style/Widget.DeviceDefault.TextView.SpinnerItem"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Easy way to eat"
+            android:textColor="#0E0D0D" />
+    </LinearLayout>
+
+
+</LinearLayout>
+
+
