@@ -125,7 +125,7 @@ public class Owner extends AppCompatActivity {
             Uri personPhoto = acct.getPhotoUrl();
 
 
-        Toast.makeText(this , "Name of the user : " + personName + "user id :" + personId , Toast.LENGTH_SHORT).show();
+        Toast.makeText(this , "Name of the user : " + personName + " " + "user id :" + personId , Toast.LENGTH_SHORT).show();
 
 
         }
