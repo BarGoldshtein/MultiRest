@@ -34,14 +34,7 @@
         tools:layout_editor_absoluteY="108dp" />
 
 
-    <Button
-        android:id="@+id/sign_out"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Sign Out"
-        android:visibility="gone"
-        tools:layout_editor_absoluteX="307dp"
-        tools:layout_editor_absoluteY="667dp" />
+
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

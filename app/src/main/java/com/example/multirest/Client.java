@@ -29,11 +29,11 @@ public class Client extends AppCompatActivity {
 
 
     private SignInButton signIn;
-    private Button signOut;
+
     private  int RC_SIGN_IN=1;
     GoogleSignInClient mGoogleSignInClient;
     private  String TAG ="Client";
-    private FirebaseAuth mAuth;
+   FirebaseAuth mAuth;
 
 
 
@@ -44,7 +44,7 @@ public class Client extends AppCompatActivity {
 
 
         signIn=(SignInButton)findViewById(R.id.sign_in_button);
-        signOut= (Button) findViewById(R.id.sign_out);
+
         mAuth = FirebaseAuth.getInstance();
 
 
@@ -120,14 +120,7 @@ public class Client extends AppCompatActivity {
                     }
                 });
 
-        signOut.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                mAuth.signOut();//get signed out
-                signOut.setVisibility(View.GONE);
 
-            }
-        });
 
 
     }
@@ -136,7 +129,7 @@ public class Client extends AppCompatActivity {
 
         Intent intent=new Intent(this,ClientOptions.class);
         startActivity(intent);
-        signOut.setVisibility(View.VISIBLE);
+
 
 
 
