@@ -20,6 +20,15 @@
         tools:layout_editor_absoluteX="132dp"
         tools:layout_editor_absoluteY="355dp" />
 
+    <ImageView
+        android:id="@+id/imageView2"
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/tran"
+        tools:layout_editor_absoluteX="-16dp"
+        tools:layout_editor_absoluteY="104dp" />
+
     <Button
         android:id="@+id/button"
         android:layout_width="225dp"
