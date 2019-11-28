@@ -7,65 +7,48 @@
     android:background="@drawable/backgrounds"
     tools:context=".ClientOptions">
 
-    <LinearLayout
+
+    <Button
+        android:id="@+id/button3"
+        android:layout_width="225dp"
+        android:layout_height="71dp"
+        android:text="הזמנת מקום"
+        android:textColor="@android:color/black"
+        android:textSize="20sp"
+        android:textStyle="bold"
+
+        tools:layout_editor_absoluteX="132dp"
+        tools:layout_editor_absoluteY="355dp" />
+
+    <ImageView
+        android:id="@+id/imageView2"
+
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/tran"
+        tools:layout_editor_absoluteX="-16dp"
+        tools:layout_editor_absoluteY="104dp" />
 
-        <ImageView
-            android:id="@+id/imageView2"
+    <Button
+        android:id="@+id/button"
+        android:layout_width="225dp"
+        android:layout_height="71dp"
+        android:text="הצג תפריט"
+        android:textColor="@android:color/black"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        tools:layout_editor_absoluteX="132dp"
+        tools:layout_editor_absoluteY="134dp" />
 
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:srcCompat="@drawable/fydf" />
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="100dp"
-            android:orientation="vertical">
-
-            <Button
-                android:id="@+id/button3"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="#00838F"
-                android:text="הזמנת מקום"
-                android:textColor="#283593"
-                android:textSize="30sp"
-                android:textStyle="bold" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="100dp"
-            android:orientation="vertical">
-
-            <Button
-                android:id="@+id/button"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="#00838F"
-                android:text="הצג תפריט"
-                android:textColor="#283593"
-                android:textSize="30sp"
-                android:textStyle="bold" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="100dp"
-            android:orientation="vertical">
-
-            <Button
-                android:id="@+id/button2"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="#00838F"
-                android:text="קרא למלצר"
-                android:textColor="#283593"
-                android:textSize="30sp"
-                android:textStyle="bold" />
-        </LinearLayout>
-    </LinearLayout>
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="225dp"
+        android:layout_height="71dp"
+        android:text="קרא למלצר"
+        android:textColor="@android:color/black"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        tools:layout_editor_absoluteX="132dp"
+        tools:layout_editor_absoluteY="248dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
