@@ -8,6 +8,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.Toast;
 
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
@@ -28,6 +29,7 @@ public class Client extends AppCompatActivity {
 
 
     private SignInButton signIn;
+    private Button signOut;
     private  int RC_SIGN_IN=1;
     GoogleSignInClient mGoogleSignInClient;
     private  String TAG ="Client";
@@ -42,6 +44,7 @@ public class Client extends AppCompatActivity {
 
 
         signIn=(SignInButton)findViewById(R.id.sign_in_button);
+        signOut= (Button) findViewById(R.id.sign_out);
         mAuth = FirebaseAuth.getInstance();
 
 
@@ -116,9 +119,27 @@ public class Client extends AppCompatActivity {
                         // ...
                     }
                 });
+
+        signOut.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mAuth.signOut();//get signed out
+                signOut.setVisibility(View.GONE);
+
+            }
+        });
+
+
     }
 
     private void updateUI(FirebaseUser user) {
+
+        Intent intent=new Intent(this,ClientOptions.class);
+        startActivity(intent);
+        signOut.setVisibility(View.VISIBLE);
+
+
+
         GoogleSignInAccount acct = GoogleSignIn.getLastSignedInAccount(getApplicationContext());
         if (acct != null) {
             String personName = acct.getDisplayName();

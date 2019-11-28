@@ -8,6 +8,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.Toast;
 
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
@@ -28,6 +29,8 @@ import com.google.firebase.auth.GoogleAuthProvider;
 public class Owner extends AppCompatActivity {
 
     private SignInButton signIn;
+
+
     private  int RC_SIGN_IN=1;
     GoogleSignInClient mGoogleSignInClient;
     private  String TAG ="Owner";
@@ -42,6 +45,7 @@ public class Owner extends AppCompatActivity {
 
 
         signIn=(SignInButton)findViewById(R.id.sign_in_button);
+
         mAuth = FirebaseAuth.getInstance();
 
 
@@ -112,9 +116,18 @@ public class Owner extends AppCompatActivity {
                         // ...
                     }
                 });
+
+
+
+
+
+
     }
 
     private void updateUI(FirebaseUser user) {
+
+
+
         GoogleSignInAccount acct = GoogleSignIn.getLastSignedInAccount(getApplicationContext());
         if (acct != null) {
             String personName = acct.getDisplayName();
