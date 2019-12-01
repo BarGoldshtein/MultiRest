@@ -11,30 +11,26 @@
     <com.google.android.gms.common.SignInButton
         android:id="@+id/sign_in_button"
         android:layout_width="185dp"
+
         android:layout_height="65dp"
-        tools:layout_editor_absoluteX="113dp"
-        tools:layout_editor_absoluteY="305dp" />
-
-    <ImageView
-        android:id="@+id/imageView2"
-
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:srcCompat="@drawable/tran"
-        tools:layout_editor_absoluteX="-16dp"
-        tools:layout_editor_absoluteY="104dp" />
-
+        android:layout_marginStart="128dp"
+        android:layout_marginLeft="128dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/textView2"
+        app:layout_constraintVertical_bias="0.362" />
 
     <TextView
         android:id="@+id/textView2"
-        android:layout_width="141dp"
-        android:layout_height="69dp"
+        android:layout_width="193dp"
+        android:layout_height="49dp"
+        android:layout_marginTop="68dp"
         android:text="!ברוכים הבאים"
-        tools:layout_editor_absoluteX="145dp"
-        tools:layout_editor_absoluteY="108dp" />
-
-
-
+        android:textSize="30sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.548"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
