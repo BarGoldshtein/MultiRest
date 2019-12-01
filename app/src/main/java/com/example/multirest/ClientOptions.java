@@ -12,6 +12,7 @@ import com.google.firebase.auth.FirebaseAuth;
 public class ClientOptions extends AppCompatActivity {
 
     private Button signOut;
+    private Button mButton;
     FirebaseAuth mAuth;
 
 
@@ -22,6 +23,7 @@ public class ClientOptions extends AppCompatActivity {
         setContentView(R.layout.activity_client_options);
 
         signOut= (Button) findViewById(R.id.sign_out);
+        mButton=(Button) findViewById(R.id.button);
         mAuth = FirebaseAuth.getInstance();
 
 
@@ -32,6 +34,13 @@ public class ClientOptions extends AppCompatActivity {
                 goToStart();
             }
 
+        });
+
+        mButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openMenu();
+            }
         });
 
 
@@ -45,6 +54,10 @@ public class ClientOptions extends AppCompatActivity {
 
 
     }
+
+    public void openMenu(){
+        Intent intent=new Intent(this,menu.class);
+        startActivity(intent);    }
 
 
 }

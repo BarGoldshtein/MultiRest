@@ -5,6 +5,8 @@ public class Dish {
     private double price;
 
     public Dish(){
+        name="";
+        price=0;
 
     }
 

@@ -34,13 +34,13 @@ public class AddDish extends AppCompatActivity {
         txtname=(EditText)findViewById(R.id.editText3);
         txtprice=(EditText)findViewById(R.id.editText6);
         myRef=FirebaseDatabase.getInstance().getReference().child("Dish");
-        d=new Dish();
 
         btnsave.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 double p=Double.parseDouble(txtprice.getText().toString().trim());
                 String n=txtname.getText().toString();
+                d=new Dish();
                 d.setName(n);
                 d.setPrice(p);
                 myRef.push().setValue(d);

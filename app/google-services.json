@@ -15,6 +15,30 @@
       },
       "oauth_client": [
         {
+          "client_id": "315748432861-0gfds9eng3m3rv4qfkgnsdud1oi5fq79.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.multirest",
+            "certificate_hash": "a55003bd0eb2133e7bcaea98a8b50d14a1329f50"
+          }
+        },
+        {
+          "client_id": "315748432861-dbugvb21l4dn8uccqku99njibil93vu0.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.multirest",
+            "certificate_hash": "de954c6d405fca266bfd63ec38a3678d96b07cb9"
+          }
+        },
+        {
+          "client_id": "315748432861-rdm7eqhtj2ln9sigbicd0vm2tqvhq8fs.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.multirest",
+            "certificate_hash": "37624b93e27436e2703548cb7109b11188968e26"
+          }
+        },
+        {
           "client_id": "315748432861-ihpdrefurcv0bpbdoqdhvv9r1j31k9ct.apps.googleusercontent.com",
           "client_type": 3
         }
@@ -28,7 +52,7 @@
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "315748432861-ihpdrefurcv0bpbdoqdhvv9r1j31k9ct.apps.googleusercontent.com",
+              "client_id": "315748432861-c5795bpi45fbeqa4pbfr5vlkfh1iotp0.apps.googleusercontent.com",
               "client_type": 3
             }
           ]
