@@ -37,7 +37,7 @@
         app:srcCompat="@drawable/tran" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/showMenu"
         android:layout_width="225dp"
         android:layout_height="71dp"
         android:text="הצג תפריט"

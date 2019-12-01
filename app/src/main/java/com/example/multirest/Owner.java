@@ -35,7 +35,7 @@ public class Owner extends AppCompatActivity {
     GoogleSignInClient mGoogleSignInClient;
     private  String TAG ="Owner";
     private FirebaseAuth mAuth;
-
+   Button  buttonNext;
 
 
     @Override
@@ -67,8 +67,19 @@ public class Owner extends AppCompatActivity {
                 signIn();
             }
         });
-    }
 
+        buttonNext = (Button) findViewById(R.id.button8);
+        buttonNext.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                open();
+            }
+        });
+    }
+   public void open(){
+       Intent intent=new Intent(this,OwnerOptions.class);
+       startActivity(intent);
+   }
     private void signIn() {
         Intent signInIntent = mGoogleSignInClient.getSignInIntent();
         startActivityForResult(signInIntent, RC_SIGN_IN);

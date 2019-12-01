@@ -9,7 +9,10 @@ public class Dish {
         price=0;
 
     }
-
+public Dish(Dish d){
+   name=d.name;
+   price=d.price;
+}
     public Dish(String n,double p)
     {
         name=n;
@@ -30,7 +33,10 @@ public class Dish {
         name=n;
 
     }
-
+public String toString(){
+        String ans="name: "+name+", price: "+price;
+        return ans;
+}
     public String getName(){
         return name;
     }
