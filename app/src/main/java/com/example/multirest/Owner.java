@@ -128,6 +128,11 @@ public class Owner extends AppCompatActivity {
 
 
 
+        Intent intent=new Intent(this,OwnerOptions.class);
+        startActivity(intent);
+
+
+
         GoogleSignInAccount acct = GoogleSignIn.getLastSignedInAccount(getApplicationContext());
         if (acct != null) {
             String personName = acct.getDisplayName();
