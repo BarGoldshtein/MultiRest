@@ -5,6 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/backgrounds"
+    android:layoutDirection="ltr"
+
     tools:context=".Client">
 
 
@@ -25,7 +27,7 @@
         android:layout_width="193dp"
         android:layout_height="49dp"
         android:layout_marginTop="68dp"
-        android:text="!ברוכים הבאים"
+        android:text="ברוכים הבאים!"
         android:textSize="30sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.548"

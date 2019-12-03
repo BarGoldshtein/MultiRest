@@ -6,6 +6,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/backgrounds"
+    android:layoutDirection="ltr"
+
     tools:context=".OwnerOptions">
 
     <ImageView
@@ -21,9 +23,9 @@
         android:id="@+id/button11"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="152dp"
-        android:layout_marginLeft="152dp"
-        android:layout_marginTop="240dp"
+        android:layout_marginStart="164dp"
+        android:layout_marginLeft="164dp"
+        android:layout_marginTop="212dp"
         android:text="עדכון תפריט"
         android:textSize="20sp"
         app:layout_constraintStart_toStartOf="parent"
@@ -33,10 +35,13 @@
         android:id="@+id/button13"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="116dp"
+        android:layout_marginLeft="116dp"
+
+        android:layout_marginBottom="368dp"
         android:text="צפה בהזמנות פתוחות"
         android:textSize="20sp"
-
-        tools:layout_editor_absoluteX="123dp"
-        tools:layout_editor_absoluteY="311dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
