@@ -40,7 +40,7 @@ public class menu extends AppCompatActivity {
         d=new ArrayAdapter<Dish>(this, android.R.layout.simple_list_item_1,dishes);
         MyList.setAdapter(d);
 
-        myRef.child("Dish").addValueEventListener(new ValueEventListener(){
+        myRef.child("DISH").addValueEventListener(new ValueEventListener(){
     @Override
     public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
         Iterable<DataSnapshot> children=dataSnapshot.getChildren();
