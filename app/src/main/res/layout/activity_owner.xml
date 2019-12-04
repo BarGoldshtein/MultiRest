@@ -8,15 +8,6 @@
     tools:context=".Owner">
 
 
-    <Button
-        android:id="@+id/sign_out"
-        android:layout_width="4dp"
-        android:layout_height="11dp"
-        android:text="Sign Out"
-        android:visibility="gone"
-        tools:layout_editor_absoluteX="307dp"
-        tools:layout_editor_absoluteY="667dp" />
-
     <com.google.android.gms.common.SignInButton
         android:id="@+id/sign_in_button"
         android:layout_width="wrap_content"
