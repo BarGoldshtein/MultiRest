@@ -20,6 +20,10 @@ private Button buttonOwner;
         buttonClient = (Button) findViewById(R.id.bclient);
 
 
+
+
+
+
         buttonClient.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick (View view) {
