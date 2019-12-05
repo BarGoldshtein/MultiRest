@@ -19,7 +19,7 @@ public class ClientOptions extends AppCompatActivity implements AdapterView.OnIt
     private Button mButton;
     private Button OpenMenu;
     FirebaseAuth mAuth;
-   private static String text;
+    private static String text;
 
 
 
