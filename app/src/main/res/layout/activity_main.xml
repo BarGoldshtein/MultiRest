@@ -28,8 +28,9 @@
             android:id="@+id/bowner"
             android:layout_width="410dp"
             android:layout_height="100dp"
-            android:background="@drawable/my_button_bg"
+            android:background="@drawable/backgrounds"
             android:gravity="center"
+
             android:scaleX=".50"
             android:scaleY=".50"
             android:text="מנהל"
@@ -43,7 +44,7 @@
             android:layout_height="100dp"
             android:scaleX=".50"
             android:scaleY=".50"
-            android:background="@drawable/my_button_bg"
+            android:background="@drawable/backgrounds"
             android:gravity="center"
 
             android:text="לקוח"
