@@ -6,9 +6,11 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
+import android.widget.Spinner;
 
 import com.example.multirest.ui.Dish;
 import com.google.firebase.database.ChildEventListener;
@@ -29,8 +31,11 @@ public class menu extends AppCompatActivity {
     ArrayList<Dish> dishes = new ArrayList<Dish>();
     FirebaseDatabase database = FirebaseDatabase.getInstance();
     DatabaseReference myRef = database.getReference();
-   ArrayAdapter<Dish> d;
+     ArrayAdapter<Dish> d;
      ListView MyList;
+//     View v=getLayoutInflater().inflate(R.layout.activity_client_options,null);
+//     Spinner s=v.findViewById(R.id.spinner1);
+//     String table=s.getSelectedItem().toString();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
