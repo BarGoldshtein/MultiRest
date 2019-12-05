@@ -18,7 +18,7 @@ import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.ArrayList;
 public class AddDish extends AppCompatActivity {
-    EditText txtname,txtprice;
+    EditText txtname,txtprice ,txtdescription;
     Button btnsave;
     FirebaseDatabase database = FirebaseDatabase.getInstance();
     DatabaseReference myRef = database.getReference();
@@ -31,18 +31,21 @@ public class AddDish extends AppCompatActivity {
         setContentView(R.layout.activity_add_dish);
 
         btnsave=(Button) findViewById(R.id.button6);
-        txtname=(EditText)findViewById(R.id.editText3);
-        txtprice=(EditText)findViewById(R.id.editText6);
-        myRef=FirebaseDatabase.getInstance().getReference().child("Dish");
+        txtname=(EditText)findViewById(R.id.editText7);
+        txtprice=(EditText)findViewById(R.id.editText3);
+        txtdescription=(EditText)findViewById(R.id.editText6);
+        myRef=FirebaseDatabase.getInstance().getReference().child("DISH");
 
         btnsave.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 double p=Double.parseDouble(txtprice.getText().toString().trim());
                 String n=txtname.getText().toString();
+                String des=txtdescription.getText().toString();
                 d=new Dish();
                 d.setName(n);
                 d.setPrice(p);
+                d.setDesc(des);
                 myRef.push().setValue(d);
                 Toast.makeText(AddDish.this,"data inserted sucessfuly",Toast.LENGTH_LONG).show();
             }

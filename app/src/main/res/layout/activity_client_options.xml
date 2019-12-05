@@ -5,6 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/backgrounds"
+    android:layoutDirection="ltr"
+
     tools:context=".ClientOptions">
 
 
@@ -37,7 +39,7 @@
         app:srcCompat="@drawable/tran" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/showMenu"
         android:layout_width="225dp"
         android:layout_height="71dp"
         android:text="הצג תפריט"

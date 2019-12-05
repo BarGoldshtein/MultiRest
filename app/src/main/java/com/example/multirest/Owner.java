@@ -8,9 +8,12 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.ListView;
 import android.widget.Toast;
 
+import com.example.multirest.ui.Dish;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;
@@ -25,6 +28,13 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.GoogleAuthProvider;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
+import java.util.ArrayList;
+
 
 public class Owner extends AppCompatActivity {
 
@@ -35,7 +45,7 @@ public class Owner extends AppCompatActivity {
     GoogleSignInClient mGoogleSignInClient;
     private  String TAG ="Owner";
     private FirebaseAuth mAuth;
-
+   Button  buttonNext;
 
 
     @Override
@@ -67,8 +77,19 @@ public class Owner extends AppCompatActivity {
                 signIn();
             }
         });
-    }
 
+        buttonNext = (Button) findViewById(R.id.button8);
+        buttonNext.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                open();
+            }
+        });
+    }
+   public void open(){
+       Intent intent=new Intent(this,OwnerOptions.class);
+       startActivity(intent);
+   }
     private void signIn() {
         Intent signInIntent = mGoogleSignInClient.getSignInIntent();
         startActivityForResult(signInIntent, RC_SIGN_IN);
@@ -96,21 +117,23 @@ public class Owner extends AppCompatActivity {
     private void firebaseAuthWithGoogle(GoogleSignInAccount acct) {
         Log.d(TAG, "firebaseAuthWithGoogle:" + acct.getId());
 
-        AuthCredential credential = GoogleAuthProvider.getCredential(acct.getIdToken(), null);
+        final AuthCredential credential = GoogleAuthProvider.getCredential(acct.getIdToken(), null);
         mAuth.signInWithCredential(credential)
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
-                        if (task.isSuccessful()) {
+
+
+                        if ( task.isSuccessful()) {
                             // Sign in success, update UI with the signed-in user's information
                             Log.d(TAG, "signInWithCredential:success");
                             FirebaseUser user = mAuth.getCurrentUser();
-                            updateUI(user);
+                           updateUI(user);
                         } else {
                             // If sign in fails, display a message to the user.
                             Log.w(TAG, "signInWithCredential:failure", task.getException());
                             Toast.makeText(Owner.this , "you are not able to log in to google", Toast.LENGTH_LONG).show();
-                           // updateUI(null);
+
                         }
 
                         // ...
@@ -124,6 +147,23 @@ public class Owner extends AppCompatActivity {
 
     }
 
+    private boolean checkper() {//!!!!!!!!!!!!!NOT WORKING!!!!!!!!!!!!!
+        GoogleSignInAccount acct = GoogleSignIn.getLastSignedInAccount(getApplicationContext());
+        final ArrayList<String> owners = new ArrayList<String>();
+        FirebaseDatabase database = FirebaseDatabase.getInstance();
+        DatabaseReference myRef = database.getReference();
+        ArrayAdapter<String> o;
+        ListView MyList;
+        setContentView(R.layout.activity_menu);
+        MyList = (ListView) findViewById(R.id.MyMenu);
+        o = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, owners);
+        MyList.setAdapter(o);
+
+      return   owners.contains(acct.getEmail());
+
+    }
+
+
     private void updateUI(FirebaseUser user) {
 
 
@@ -131,9 +171,8 @@ public class Owner extends AppCompatActivity {
         Intent intent=new Intent(this,OwnerOptions.class);
         startActivity(intent);
 
-
-
         GoogleSignInAccount acct = GoogleSignIn.getLastSignedInAccount(getApplicationContext());
+
         if (acct != null) {
             String personName = acct.getDisplayName();
             String personGivenName = acct.getGivenName();
