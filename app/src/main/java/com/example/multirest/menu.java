@@ -34,7 +34,7 @@ public class menu extends AppCompatActivity {
    private Button adDish1;
    private Button adDish2;
    private Button adDish3;
-   private ArrayList<order> orders;
+    private ArrayList<order> orders;
     FirebaseDatabase database = FirebaseDatabase.getInstance();
     DatabaseReference myRef = database.getReference();
     DatabaseReference myRef1 = database.getReference();
@@ -64,6 +64,34 @@ public class menu extends AppCompatActivity {
                 o.setOpen(true);
                 o.setDish(d.getItem(0));
                 myRef1.push().setValue(o);
+                orders.add(o);
+                Toast.makeText(menu.this,"Order Accepted",Toast.LENGTH_LONG).show();
+
+            }
+        });
+
+        adDish2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                order o=new order();
+                o.setTableNumber(table);
+                o.setOpen(true);
+                o.setDish(d.getItem(2));
+                myRef1.push().setValue(o);
+                orders.add(o);
+                Toast.makeText(menu.this,"Order Accepted",Toast.LENGTH_LONG).show();
+
+            }
+        });
+        adDish3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                order o=new order();
+                o.setTableNumber(table);
+                o.setOpen(true);
+                o.setDish(d.getItem(3));
+                myRef1.push().setValue(o);
+                orders.add(o);
                 Toast.makeText(menu.this,"Order Accepted",Toast.LENGTH_LONG).show();
 
             }
@@ -92,6 +120,9 @@ public class menu extends AppCompatActivity {
 
 //        ArrayAdapter<Dish> d=new ArrayAdapter<Dish>(getActivity(), android.R.layout.simple_list_item_1,dishes);
 //        setListAdapter(d);
+    }
+    public ArrayList<order> getOrders() {
+        return orders;
     }
 
 
