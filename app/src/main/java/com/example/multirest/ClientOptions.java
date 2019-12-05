@@ -19,7 +19,7 @@ public class ClientOptions extends AppCompatActivity implements AdapterView.OnIt
     private Button mButton;
     private Button OpenMenu;
     FirebaseAuth mAuth;
-    String text;
+   private static String text;
 
 
 
@@ -70,6 +70,10 @@ public class ClientOptions extends AppCompatActivity implements AdapterView.OnIt
 
 
 
+    }
+
+    public static String getTable(){
+        return text;
     }
 
     public void openMenu(){

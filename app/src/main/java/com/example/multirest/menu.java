@@ -11,8 +11,10 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 import com.example.multirest.ui.Dish;
+import com.example.multirest.ui.order;
 import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -29,25 +31,34 @@ import static android.app.PendingIntent.getActivity;
 
 public class menu extends AppCompatActivity {
     ArrayList<Dish> dishes = new ArrayList<Dish>();
+   private Button adDish1;
+   private Button adDish2;
+   private Button adDish3;
+   private ArrayList<order> oreders;
+
     FirebaseDatabase database = FirebaseDatabase.getInstance();
     DatabaseReference myRef = database.getReference();
-     ArrayAdapter<Dish> d;
-     ListView MyList;
-//     View v=getLayoutInflater().inflate(R.layout.activity_client_options,null);
-//     Spinner s=v.findViewById(R.id.spinner1);
-//     String table=s.getSelectedItem().toString();
+    ArrayAdapter<Dish> d;
+    ListView MyList;
+    String table;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu);
         MyList =(ListView) findViewById(R.id.MyMenu);
+        adDish1=(Button)findViewById(R.id.button5);
+        adDish2=(Button)findViewById(R.id.button4);
+        adDish3=(Button)findViewById(R.id.button7);
+
         d=new ArrayAdapter<Dish>(this, android.R.layout.simple_list_item_1,dishes);
         MyList.setAdapter(d);
+
 
         myRef.child("DISH").addValueEventListener(new ValueEventListener(){
     @Override
     public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+        table=ClientOptions.getTable();
         Iterable<DataSnapshot> children=dataSnapshot.getChildren();
         for (DataSnapshot child:children) {
            dishes.add(child.getValue(Dish.class));
