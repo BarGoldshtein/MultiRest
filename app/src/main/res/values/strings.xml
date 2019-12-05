@@ -4,4 +4,13 @@
     <string name="title_home">Home</string>
     <string name="title_dashboard">Dashboard</string>
     <string name="title_notifications">Notifications</string>
+    <string-array name="numbers">
+        <item>אחד</item>
+        <item>שתיים</item>
+        <item>שלוש</item>
+        <item>ארבע</item>
+        <item>חמש</item>
+        <item>שש</item>
+
+    </string-array>
 </resources>

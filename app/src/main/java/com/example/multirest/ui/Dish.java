@@ -48,7 +48,8 @@ public Dish(Dish d){
     }
 public String toString(){
         String ans="name: "+name+", price: "+price+", description: "+desc;
-        return ans;
+        String ans1="שם המנה:"+" "+name+"."+" "+"מחיר:"+" "+price+"."+" "+"תיאור המנה:"+" "+desc+".";
+        return ans1;
 }
     public String getName(){
         return name;
