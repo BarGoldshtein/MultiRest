@@ -15,7 +15,11 @@ public class order {
         dish=new Dish(d);
         isOpen=true;
     }
-
+    public order(order t){
+        tableNumber=t.tableNumber;
+        dish=new Dish(t.dish);
+        isOpen=t.isOpen;
+    }
 
     public String getTableNumber() {
         return tableNumber;
@@ -44,11 +48,10 @@ public class order {
     }
 
     public String toString() {
-        return "order{" +
-                "מספר שולחן='" + tableNumber + '\'' +
-                ", מנה=" + dish.toString() +
-                ", הזמנה פתוחה:=" + isOpen +
-                '}';
+        return
+                "מספר שולחן:" +" "+ tableNumber  +" "+
+                        ", מנה:" +" "+ dish.toString() +" "+
+                        ", הזמנה פתוחה:" + isOpen
+                ;
     }
-
 }

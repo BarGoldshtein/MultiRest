@@ -49,6 +49,7 @@ public class menu extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu);
         myRef1=FirebaseDatabase.getInstance().getReference().child("order");
+
         MyList =(ListView) findViewById(R.id.MyMenu);
         adDish1=(Button)findViewById(R.id.button5);
         adDish2=(Button)findViewById(R.id.button4);
