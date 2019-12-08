@@ -50,8 +50,8 @@ public class order {
     public String toString() {
         return
                 "מספר שולחן:" +" "+ tableNumber  +" "+
-                        ", מנה:" +" "+ dish.toString() +" "+
-                        ", הזמנה פתוחה:" + isOpen
+                        ", מנה:" +" "+ dish.toString() +" "
+
                 ;
     }
 }
