@@ -25,7 +25,10 @@ import com.google.firebase.database.ValueEventListener;
 import java.time.Clock;
 import java.util.ArrayList;
 import java.util.EventListener;
+import java.util.LinkedList;
 import java.util.List;
+import java.util.Queue;
+import java.util.concurrent.ArrayBlockingQueue;
 
 import static android.app.PendingIntent.getActivity;
 
@@ -34,22 +37,18 @@ public class menu extends AppCompatActivity {
    private Button adDish1;
    private Button adDish2;
    private Button adDish3;
-    private ArrayList<order> orders;
+    private static Queue<order> orders=new LinkedList<>();;
     FirebaseDatabase database = FirebaseDatabase.getInstance();
     DatabaseReference myRef = database.getReference();
     DatabaseReference myRef1 = database.getReference();
-
     ArrayAdapter<Dish> d;
     ListView MyList;
     String table;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu);
         myRef1=FirebaseDatabase.getInstance().getReference().child("order");
-        orders=new ArrayList<order>();
         MyList =(ListView) findViewById(R.id.MyMenu);
         adDish1=(Button)findViewById(R.id.button5);
         adDish2=(Button)findViewById(R.id.button4);
@@ -121,7 +120,7 @@ public class menu extends AppCompatActivity {
 //        ArrayAdapter<Dish> d=new ArrayAdapter<Dish>(getActivity(), android.R.layout.simple_list_item_1,dishes);
 //        setListAdapter(d);
     }
-    public ArrayList<order> getOrders() {
+    public static Queue<order> getOrders() {
         return orders;
     }
 

@@ -29,48 +29,60 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.GoogleAuthProvider;
 import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.io.Console;
 import java.util.ArrayList;
-
-
 public class Owner extends AppCompatActivity {
 
     private SignInButton signIn;
-
-
     private  int RC_SIGN_IN=1;
     GoogleSignInClient mGoogleSignInClient;
     private  String TAG ="Owner";
     private FirebaseAuth mAuth;
-   Button  buttonNext;
+    Button  buttonNext;
+    private static ArrayList<String> owners = new ArrayList<String>();
 
+    private static  DatabaseReference rootRef = FirebaseDatabase.getInstance().getReference();
+    private static  DatabaseReference ownersRef = rootRef.child("owners");
 
-    @Override
+@Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_owner);
-
-
         signIn=(SignInButton)findViewById(R.id.sign_in_button);
-
         mAuth = FirebaseAuth.getInstance();
 
+        ///////////////////////////////
+    ValueEventListener vel = new ValueEventListener() {
+        @Override
+        public void onDataChange(DataSnapshot dataSnapshot) {
+            for(DataSnapshot ds : dataSnapshot.getChildren()) {
+                String uid = ds.getKey();
+                owners.add(uid);
+                System.out.println(uid);
+            }
+            //Do what you need to do with your list
+        }
 
-        // Configure sign-in to request the user's ID, email address, and basic
+        @Override
+        public void onCancelled(@NonNull DatabaseError databaseError) {
+
+        }
+    };
+    ownersRef.addListenerForSingleValueEvent(vel);
+/////////////////////
+    // Configure sign-in to request the user's ID, email address, and basic
 // profile. ID and basic profile are included in DEFAULT_SIGN_IN.
         GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
                 .requestIdToken(getString(R.string.default_web_client_id))
                 .requestEmail()
                 .build();
-
-
-
         // Build a GoogleSignInClient with the options specified by gso.
         mGoogleSignInClient = GoogleSignIn.getClient(this, gso);
-
         signIn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -147,32 +159,17 @@ public class Owner extends AppCompatActivity {
 
     }
 
-    private boolean checkper() {//!!!!!!!!!!!!!NOT WORKING!!!!!!!!!!!!!
+    private  boolean checkper() {//!!!!!!!!!!!!!NOT WORKING!!!!!!!!!!!!!
         GoogleSignInAccount acct = GoogleSignIn.getLastSignedInAccount(getApplicationContext());
-        final ArrayList<String> owners = new ArrayList<String>();
-        FirebaseDatabase database = FirebaseDatabase.getInstance();
-        DatabaseReference myRef = database.getReference();
-        ArrayAdapter<String> o;
-        ListView MyList;
-        setContentView(R.layout.activity_menu);
-        MyList = (ListView) findViewById(R.id.MyMenu);
-        o = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, owners);
-        MyList.setAdapter(o);
-
       return   owners.contains(acct.getEmail());
 
     }
 
 
     private void updateUI(FirebaseUser user) {
-
-
-
         Intent intent=new Intent(this,OwnerOptions.class);
         startActivity(intent);
-
         GoogleSignInAccount acct = GoogleSignIn.getLastSignedInAccount(getApplicationContext());
-
         if (acct != null) {
             String personName = acct.getDisplayName();
             String personGivenName = acct.getGivenName();

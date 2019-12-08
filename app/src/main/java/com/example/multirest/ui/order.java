@@ -43,6 +43,12 @@ public class order {
         isOpen = open;
     }
 
-
+    public String toString() {
+        return "order{" +
+                "מספר שולחן='" + tableNumber + '\'' +
+                ", מנה=" + dish.toString() +
+                ", הזמנה פתוחה:=" + isOpen +
+                '}';
+    }
 
 }
