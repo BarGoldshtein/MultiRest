@@ -10,6 +10,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -45,9 +46,13 @@ public class Owner extends AppCompatActivity {
     private FirebaseAuth mAuth;
     Button  buttonNext;
     private static ArrayList<String> owners = new ArrayList<String>();
-
+    String id;
+    EditText textid;
     private static  DatabaseReference rootRef = FirebaseDatabase.getInstance().getReference();
     private static  DatabaseReference ownersRef = rootRef.child("owners");
+    Button submitbuttom;
+
+
 
 @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,6 +60,24 @@ public class Owner extends AppCompatActivity {
         setContentView(R.layout.activity_owner);
         signIn=(SignInButton)findViewById(R.id.sign_in_button);
         mAuth = FirebaseAuth.getInstance();
+        textid=(EditText) findViewById(R.id.textid);
+        submitbuttom=(Button) findViewById(R.id.textidok);
+
+        submitbuttom.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                id=textid.getText().toString();
+                if(checkper()){
+                    submitbuttom.setVisibility(View.GONE);
+                    textid.setVisibility(View.GONE);
+                    signIn.setVisibility(View.VISIBLE);
+                }
+            }
+        });
+
+
+
+
 
         ///////////////////////////////
     ValueEventListener vel = new ValueEventListener() {
@@ -66,6 +89,9 @@ public class Owner extends AppCompatActivity {
                 System.out.println(uid);
             }
             //Do what you need to do with your list
+
+
+
         }
 
         @Override
@@ -135,7 +161,16 @@ public class Owner extends AppCompatActivity {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
 
-                            checkper();
+                            if(checkper()){
+
+                                Toast.makeText(Owner.this , "true", Toast.LENGTH_LONG).show();
+
+                            }
+                            else{
+                                Toast.makeText(Owner.this , "false", Toast.LENGTH_LONG).show();
+
+                            }
+
                         if ( task.isSuccessful()) {
                             // Sign in success, update UI with the signed-in user's information
                             Log.d(TAG, "signInWithCredential:success");
@@ -161,7 +196,7 @@ public class Owner extends AppCompatActivity {
 
     private  boolean checkper() {//!!!!!!!!!!!!!NOT WORKING!!!!!!!!!!!!!
         GoogleSignInAccount acct = GoogleSignIn.getLastSignedInAccount(getApplicationContext());
-      return   owners.contains(acct.getEmail());
+         return owners.contains(id);
 
     }
 
