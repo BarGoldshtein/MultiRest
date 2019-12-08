@@ -18,6 +18,7 @@ public class ClientOptions extends AppCompatActivity implements AdapterView.OnIt
     private Button signOut;
     private Button mButton;
     private Button OpenMenu;
+    private Button callW;
     FirebaseAuth mAuth;
     private static String text;
 
@@ -35,6 +36,14 @@ public class ClientOptions extends AppCompatActivity implements AdapterView.OnIt
         spinner.setOnItemSelectedListener(this);
         signOut= (Button) findViewById(R.id.sign_out);
         mButton=(Button) findViewById(R.id.showMenu);
+        callW=(Button) findViewById(R.id.button2);
+        callW.setOnClickListener(new View.OnClickListener(){
+
+            @Override
+            public void onClick(View v) {
+              //  Toast.makeText(OwnerOptions.this,"client calls you!",Toast.LENGTH_LONG).show();
+            }
+        });
         mAuth = FirebaseAuth.getInstance();
         OpenMenu = (Button) findViewById(R.id.showMenu);
         OpenMenu.setOnClickListener(new View.OnClickListener(){
