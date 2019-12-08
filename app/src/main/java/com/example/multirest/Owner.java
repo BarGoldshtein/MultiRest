@@ -72,6 +72,11 @@ public class Owner extends AppCompatActivity {
                     textid.setVisibility(View.GONE);
                     signIn.setVisibility(View.VISIBLE);
                 }
+                else{
+
+                    Toast.makeText(Owner.this , "this is not a vaild number.", Toast.LENGTH_LONG).show();
+
+                }
             }
         });
 
@@ -160,16 +165,6 @@ public class Owner extends AppCompatActivity {
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
-
-                            if(checkper()){
-
-                                Toast.makeText(Owner.this , "true", Toast.LENGTH_LONG).show();
-
-                            }
-                            else{
-                                Toast.makeText(Owner.this , "false", Toast.LENGTH_LONG).show();
-
-                            }
 
                         if ( task.isSuccessful()) {
                             // Sign in success, update UI with the signed-in user's information
