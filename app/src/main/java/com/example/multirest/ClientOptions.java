@@ -41,7 +41,7 @@ public class ClientOptions extends AppCompatActivity implements AdapterView.OnIt
 
             @Override
             public void onClick(View v) {
-                Toast.makeText(OwnerOptions.this,"client calls you!",Toast.LENGTH_LONG).show();
+              //  Toast.makeText(OwnerOptions.this,"client calls you!",Toast.LENGTH_LONG).show();
             }
         });
         mAuth = FirebaseAuth.getInstance();
