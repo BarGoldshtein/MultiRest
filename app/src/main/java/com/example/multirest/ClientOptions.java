@@ -37,13 +37,7 @@ public class ClientOptions extends AppCompatActivity implements AdapterView.OnIt
         signOut= (Button) findViewById(R.id.sign_out);
         mButton=(Button) findViewById(R.id.showMenu);
         callW=(Button) findViewById(R.id.button2);
-        callW.setOnClickListener(new View.OnClickListener(){
 
-            @Override
-            public void onClick(View v) {
-              //  Toast.makeText(OwnerOptions.this,"client calls you!",Toast.LENGTH_LONG).show();
-            }
-        });
         mAuth = FirebaseAuth.getInstance();
         OpenMenu = (Button) findViewById(R.id.showMenu);
         OpenMenu.setOnClickListener(new View.OnClickListener(){
