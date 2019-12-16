@@ -4,8 +4,11 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.example.multirest.ui.Dish;
@@ -20,16 +23,30 @@ import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.Queue;
 
-public class OpenOrders extends AppCompatActivity {
+public class OpenOrders extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
     private  ListView orders;
     static LinkedList<order>  myOrders=new LinkedList<>();
     private ArrayList[] openorders = new ArrayList[6];
     ArrayAdapter<order> adptr;
     FirebaseDatabase database = FirebaseDatabase.getInstance();
     DatabaseReference myRef = database.getReference();
+
+
     protected void onCreate(Bundle savedInstanceState) {
+
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_open_orders);
+
+
+        Spinner spinner =findViewById(R.id.spinner2);
+        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
+                R.array.orders, android.R.layout.simple_spinner_item);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinner.setAdapter(adapter);
+        spinner.setOnItemSelectedListener(this);
+
+
         orders = (ListView) findViewById(R.id.openO);
         adptr = new ArrayAdapter<order>(this, android.R.layout.simple_list_item_1, myOrders);
         orders.setAdapter(adptr);
@@ -56,6 +73,17 @@ public class OpenOrders extends AppCompatActivity {
 
 
         });
+    }
+
+    @Override
+    public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+        String text = parent.getItemAtPosition(position).toString();
+        Toast.makeText(parent.getContext(), text, Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public void onNothingSelected(AdapterView<?> parent) {
+
     }
 
 }

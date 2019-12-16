@@ -28,7 +28,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="156dp"
         android:layout_marginLeft="156dp"
-        android:layout_marginBottom="524dp"
+        android:layout_marginBottom="508dp"
         android:ems="10"
         android:inputType="textPersonName"
         android:text="הכנס שם מנה:"
@@ -39,7 +39,7 @@
         android:id="@+id/editText3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="228dp"
+        android:layout_marginTop="192dp"
         android:ems="10"
         android:inputType="textPersonName"
         android:text="הכנס מחיר מנה:"
@@ -60,7 +60,7 @@
         app:layout_constraintHorizontal_bias="0.848"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.437" />
+        app:layout_constraintVertical_bias="0.416" />
 
     <Button
         android:id="@+id/button6"
