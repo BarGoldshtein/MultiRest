@@ -67,7 +67,7 @@ public class OpenOrders extends AppCompatActivity implements AdapterView.OnItemS
         myRef.child("order").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-
+                myOrders.clear(); adptr.notifyDataSetChanged();
                 Iterable<DataSnapshot> children = dataSnapshot.getChildren();
                 for (DataSnapshot child : children) {
                     myOrders.add(child.getValue(order.class));

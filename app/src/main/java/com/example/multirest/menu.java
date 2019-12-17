@@ -96,8 +96,6 @@ public class menu extends AppCompatActivity {
 
             }
         });
-
-
         myRef.child("DISH").addValueEventListener(new ValueEventListener(){
     @Override
     public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
