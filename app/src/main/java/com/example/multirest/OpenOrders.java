@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ListView;
 import android.widget.Spinner;
 import android.widget.Toast;
@@ -25,6 +26,8 @@ import java.util.Queue;
 
 public class OpenOrders extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
     private  ListView orders;
+    private String text;
+    private Button closeOrer;
     static LinkedList<order>  myOrders=new LinkedList<>();
     private ArrayList[] openorders = new ArrayList[6];
     ArrayAdapter<order> adptr;
@@ -38,7 +41,15 @@ public class OpenOrders extends AppCompatActivity implements AdapterView.OnItemS
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_open_orders);
 
-
+        closeOrer=findViewById(R.id.button);
+        closeOrer.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+               int num=Integer.parseInt(text);
+               adptr.remove(adptr.getItem(num-1));
+              // DatabaseReference d=FirebaseDatabase.getInstance().getReference("order").child("");
+            }
+        });
         Spinner spinner =findViewById(R.id.spinner2);
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
                 R.array.orders, android.R.layout.simple_spinner_item);
@@ -77,7 +88,7 @@ public class OpenOrders extends AppCompatActivity implements AdapterView.OnItemS
 
     @Override
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-        String text = parent.getItemAtPosition(position).toString();
+        text = parent.getItemAtPosition(position).toString();
         Toast.makeText(parent.getContext(), text, Toast.LENGTH_SHORT).show();
     }
 
