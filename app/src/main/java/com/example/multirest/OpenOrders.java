@@ -47,7 +47,6 @@ public class OpenOrders extends AppCompatActivity implements AdapterView.OnItemS
             public void onClick(View v) {
                int num=Integer.parseInt(text);
                adptr.remove(adptr.getItem(num-1));
-              // DatabaseReference d=FirebaseDatabase.getInstance().getReference("order").child("");
             }
         });
         Spinner spinner =findViewById(R.id.spinner2);
