@@ -101,11 +101,13 @@ public class menu extends AppCompatActivity {
         myRef.child("DISH").addValueEventListener(new ValueEventListener(){
     @Override
     public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+        dishes.clear();//!!!!!
+        d.notifyDataSetChanged();
         table=ClientOptions.getTable();
         Iterable<DataSnapshot> children=dataSnapshot.getChildren();
         for (DataSnapshot child:children) {
            dishes.add(child.getValue(Dish.class));
-          System.out.println("added!");
+          //System.out.println("added!");
            d.notifyDataSetChanged();
 
        }
