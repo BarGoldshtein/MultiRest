@@ -44,7 +44,7 @@ public class Owner extends AppCompatActivity {
     GoogleSignInClient mGoogleSignInClient;
     private  String TAG ="Owner";
     private FirebaseAuth mAuth;
-    Button  buttonNext;
+
     private static ArrayList<String> owners = new ArrayList<String>();
     String id;
     EditText textid;
@@ -121,13 +121,7 @@ public class Owner extends AppCompatActivity {
             }
         });
 
-        buttonNext = (Button) findViewById(R.id.button8);
-        buttonNext.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                open();
-            }
-        });
+
     }
    public void open(){
        Intent intent=new Intent(this,OwnerOptions.class);
