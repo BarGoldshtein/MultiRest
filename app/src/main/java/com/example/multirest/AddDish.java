@@ -18,6 +18,8 @@ import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.ArrayList;
 public class AddDish extends AppCompatActivity {
+
+    //var
     EditText txtname,txtprice ,txtdescription;
     Button btnsave;
     FirebaseDatabase database = FirebaseDatabase.getInstance();
@@ -36,6 +38,7 @@ public class AddDish extends AppCompatActivity {
         txtdescription=(EditText)findViewById(R.id.editText6);
         myRef=FirebaseDatabase.getInstance().getReference().child("DISH");
 
+        //save button
         btnsave.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

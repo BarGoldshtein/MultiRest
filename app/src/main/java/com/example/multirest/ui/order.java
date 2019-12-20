@@ -1,6 +1,7 @@
 package com.example.multirest.ui;
 
 public class order {
+    private String id;
     private String tableNumber;
     private Dish dish;
     private boolean isOpen;
@@ -10,16 +11,27 @@ public class order {
     }
 
 
-    public order(String t, Dish d){
+    public order(String id,String t, Dish d){
+        this.id=id;
         tableNumber=t;
         dish=new Dish(d);
         isOpen=true;
     }
     public order(order t){
+        id=t.id;
         tableNumber=t.tableNumber;
         dish=new Dish(t.dish);
         isOpen=t.isOpen;
     }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
 
     public String getTableNumber() {
         return tableNumber;

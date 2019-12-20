@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -14,6 +15,8 @@ import android.widget.Toast;
 
 import com.example.multirest.ui.Dish;
 import com.example.multirest.ui.order;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -23,7 +26,7 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.Queue;
-
+//var
 public class OpenOrders extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
     private  ListView orders;
     private String text;
@@ -33,20 +36,24 @@ public class OpenOrders extends AppCompatActivity implements AdapterView.OnItemS
     ArrayAdapter<order> adptr;
     FirebaseDatabase database = FirebaseDatabase.getInstance();
     DatabaseReference myRef = database.getReference();
+    private FirebaseDatabase firebaseDatabase;
+    DatabaseReference databaseOrders;
+    Spinner spinner;
+
 
 
     protected void onCreate(Bundle savedInstanceState) {
-
-
+        firebaseDatabase = FirebaseDatabase.getInstance();
+        spinner =findViewById(R.id.spinner2);
+        databaseOrders =FirebaseDatabase.getInstance().getReference("order");
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_open_orders);
-
         closeOrer=findViewById(R.id.button);
         closeOrer.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-               int num=Integer.parseInt(text);
-               adptr.remove(adptr.getItem(num-1));
+                deleteOrer();
+
             }
         });
         Spinner spinner =findViewById(R.id.spinner2);
@@ -84,6 +91,19 @@ public class OpenOrders extends AppCompatActivity implements AdapterView.OnItemS
 
         });
     }
+//function that remove a specific order
+    private void deleteOrer() {
+         int num=Integer.parseInt(text);
+         final  String uid=adptr.getItem(num-1).getId();
+        Toast.makeText(this,uid,Toast.LENGTH_LONG).show();
+        databaseOrders.child(uid).removeValue();
+       Toast.makeText(this,"Order" +" "+text +" " + "is done",Toast.LENGTH_LONG).show();
+
+
+
+    }
+
+
 
     @Override
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
