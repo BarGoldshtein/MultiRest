@@ -35,7 +35,7 @@ public class Client extends AppCompatActivity {
     private  String TAG ="Client";
    FirebaseAuth mAuth;
 
-    Button  buttonNext;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -67,13 +67,6 @@ public class Client extends AppCompatActivity {
             }
         });
 
-        buttonNext = (Button) findViewById(R.id.button9);
-        buttonNext.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                open();
-            }
-        });
     }
 
     public void open(){
