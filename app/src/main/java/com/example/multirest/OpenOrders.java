@@ -24,7 +24,8 @@ import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.Queue;
 
-public class OpenOrders extends AppCompatActivity  {
+public class
+OpenOrders extends AppCompatActivity  {
     private  ListView orders;
      LinkedList<Order>  myOrders=new LinkedList<>();
     //ArrayAdapter<Order> adptr;
@@ -45,7 +46,7 @@ public class OpenOrders extends AppCompatActivity  {
         adpt.notifyDataSetChanged();
 
 
-        myRef.child("order").addValueEventListener(new ValueEventListener() {
+        myRef.child("Order").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 myOrders.clear();
@@ -75,8 +76,13 @@ public class OpenOrders extends AppCompatActivity  {
         orders.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-
-                adpt.remove(  adpt.getItem( position )  );
+                Order o=new Order();
+                Order temp=adpt.getItem(position);
+                o.setId(temp.getId());
+                o.setOpen(false);
+                o.setDish(new Dish(temp.getDish()));
+                o.setTableNumber(temp.getTableNumber());
+                myRef.child("Order").child(o.getId()).setValue(o);
                 adpt.notifyDataSetChanged();
                 Toast.makeText(parent.getContext(), "closed", Toast.LENGTH_SHORT).show();
             }

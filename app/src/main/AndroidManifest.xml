@@ -11,7 +11,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".OpenOrders"></activity>
+        <activity android:name=".myOrders"></activity>
+        <activity android:name=".OpenOrders" />
         <activity android:name=".menu" />
         <activity android:name=".AddDish" />
         <activity android:name=".OwnerOptions" />
