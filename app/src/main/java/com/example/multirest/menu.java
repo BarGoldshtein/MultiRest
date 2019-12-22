@@ -16,7 +16,7 @@ import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.example.multirest.ui.Dish;
-import com.example.multirest.ui.order;
+import com.example.multirest.ui.Order;
 import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -39,7 +39,7 @@ public class menu extends AppCompatActivity {
     private Button adDish1;
     private Button adDish2;
     private Button adDish3;
-    private static Queue<order> orders=new LinkedList<>();;
+    private static Queue<Order> orders=new LinkedList<>();;
     FirebaseDatabase database = FirebaseDatabase.getInstance();
     DatabaseReference myRef = database.getReference();//get instance of firebase
     DatabaseReference myRef1 = database.getReference();
@@ -47,7 +47,6 @@ public class menu extends AppCompatActivity {
     ListView MyList;
     String table;
     @Override
-
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -61,7 +60,7 @@ public class menu extends AppCompatActivity {
 
             //creating order and push it into firebase
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                order o=new order();
+                Order o=new Order();
                 o.setTableNumber(table);
                 o.setOpen(true);
                 String uid=myRef1.getKey();
@@ -97,7 +96,7 @@ public class menu extends AppCompatActivity {
         });
 
     }
-    public static Queue<order> getOrders() {
+    public static Queue<Order> getOrders() {
         return orders;
     }
 

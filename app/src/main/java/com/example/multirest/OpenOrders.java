@@ -14,7 +14,8 @@ import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.example.multirest.ui.Dish;
-import com.example.multirest.ui.order;
+import com.example.multirest.ui.Order;
+
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.database.DataSnapshot;
@@ -31,9 +32,8 @@ public class OpenOrders extends AppCompatActivity implements AdapterView.OnItemS
     private  ListView orders;
     private String text;
     private Button closeOrer;
-    static LinkedList<order>  myOrders=new LinkedList<>();
-    private ArrayList[] openorders = new ArrayList[6];
-    ArrayAdapter<order> adptr;
+    static LinkedList<Order>  myOrders=new LinkedList<>();
+    ArrayAdapter<Order> adptr;
     FirebaseDatabase database = FirebaseDatabase.getInstance();
     DatabaseReference myRef = database.getReference();
     private FirebaseDatabase firebaseDatabase;
@@ -52,7 +52,7 @@ public class OpenOrders extends AppCompatActivity implements AdapterView.OnItemS
         closeOrer.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                deleteOrer();
+                deleteOrder();
 
             }
         });
@@ -65,7 +65,7 @@ public class OpenOrders extends AppCompatActivity implements AdapterView.OnItemS
 
 
         orders = (ListView) findViewById(R.id.openO);
-        adptr = new ArrayAdapter<order>(this, android.R.layout.simple_list_item_1, myOrders);
+        adptr = new ArrayAdapter<Order>(this, android.R.layout.simple_list_item_1, myOrders);
         orders.setAdapter(adptr);
         adptr.notifyDataSetChanged();
 
@@ -73,11 +73,14 @@ public class OpenOrders extends AppCompatActivity implements AdapterView.OnItemS
         myRef.child("order").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                myOrders.clear(); adptr.notifyDataSetChanged();
+                myOrders.clear();
+                adptr.notifyDataSetChanged();
                 Iterable<DataSnapshot> children = dataSnapshot.getChildren();
                 for (DataSnapshot child : children) {
-                    myOrders.add(child.getValue(order.class));
-                    System.out.println("added!");
+                   Order h=child.getValue(Order.class);
+                    if(h.isOpen())
+                    myOrders.add(child.getValue(Order.class));
+
                     adptr.notifyDataSetChanged();
 
                 }
@@ -92,12 +95,21 @@ public class OpenOrders extends AppCompatActivity implements AdapterView.OnItemS
         });
     }
 //function that remove a specific order
-    private void deleteOrer() {
+    private void deleteOrder() {
          int num=Integer.parseInt(text);
+       myOrders.get(num-1).setOpen(false);
+        adptr.notifyDataSetChanged();
+      //  databaseOrders.child(uid).removeValue();
+
+        try {
+            databaseOrders.child("-LwYQ2nLJh8qQDYEXOmH").child("open").setValue("false");
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
          final  String uid=adptr.getItem(num-1).getId();
         Toast.makeText(this,uid,Toast.LENGTH_LONG).show();
-        databaseOrders.child(uid).removeValue();
-       Toast.makeText(this,"Order" +" "+text +" " + "is done",Toast.LENGTH_LONG).show();
+       Toast.makeText(this,"Order" +" "+text +" " + "is closed!",Toast.LENGTH_LONG).show();
 
 
 
