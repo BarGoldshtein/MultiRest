@@ -26,7 +26,7 @@ import java.util.Queue;
 
 public class OpenOrders extends AppCompatActivity  {
     private  ListView orders;
-    static LinkedList<Order>  myOrders=new LinkedList<>();
+     LinkedList<Order>  myOrders=new LinkedList<>();
     //ArrayAdapter<Order> adptr;
     FirebaseDatabase database = FirebaseDatabase.getInstance();
     DatabaseReference myRef = database.getReference();
@@ -37,22 +37,6 @@ public class OpenOrders extends AppCompatActivity  {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_open_orders);
-
-//        closeOrer=findViewById(R.id.button);
-//        closeOrer.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//               int num=Integer.parseInt(text);
-//               adptr.remove(adptr.getItem(num-1));
-//              // DatabaseReference d=FirebaseDatabase.getInstance().getReference("order").child("");
-//            }
-//        });
-       // Spinner spinner =findViewById(R.id.spinner2);
-//        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
-//                R.array.orders, android.R.layout.simple_spinner_item);
-//        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-//        spinner.setAdapter(adapter);
-//        spinner.setOnItemSelectedListener(this);
 
 
         orders = (ListView) findViewById(R.id.openO);
@@ -68,7 +52,11 @@ public class OpenOrders extends AppCompatActivity  {
                 adpt.notifyDataSetChanged();
                 Iterable<DataSnapshot> children = dataSnapshot.getChildren();
 
+
                 for (DataSnapshot child:children) {
+                    Order o=new Order();
+                    o=(Order)(child.getValue(Order.class));
+                    if(o.isOpen())
                     myOrders.add(child.getValue(Order.class));
                     adpt.notifyDataSetChanged();
 
@@ -84,15 +72,15 @@ public class OpenOrders extends AppCompatActivity  {
         });
 
 
-//        orders.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-//            @Override
-//            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-//
-//                adptr.remove(  adptr.getItem( position )  );
-//                adptr.notifyDataSetChanged();
-//                Toast.makeText(parent.getContext(), "closed", Toast.LENGTH_SHORT).show();
-//            }
-//        });
+        orders.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
+                adpt.remove(  adpt.getItem( position )  );
+                adpt.notifyDataSetChanged();
+                Toast.makeText(parent.getContext(), "closed", Toast.LENGTH_SHORT).show();
+            }
+        });
 
 
     }
