@@ -1,4 +1,3 @@
-
 package com.example.multirest;
 
 import androidx.annotation.NonNull;
@@ -41,30 +40,30 @@ public class menu extends AppCompatActivity {
     private Button adDish3;
     private static Queue<Order> orders=new LinkedList<>();;
     FirebaseDatabase database = FirebaseDatabase.getInstance();
-    DatabaseReference myRef = database.getReference();//get instance of firebase
+    DatabaseReference myRef = database.getReference();
     DatabaseReference myRef1 = database.getReference();
     ArrayAdapter<Dish> d;
     ListView MyList;
     String table;
     @Override
-
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu);
         myRef1=FirebaseDatabase.getInstance().getReference().child("order");
+
         MyList =(ListView) findViewById(R.id.MyMenu);
+//        adDish1=(Button)findViewById(R.id.button5);
+//        adDish2=(Button)findViewById(R.id.button4);
+//        adDish3=(Button)findViewById(R.id.button7);
         d=new ArrayAdapter<Dish>(this, android.R.layout.simple_list_item_1,dishes);
         MyList.setAdapter(d);
         MyList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
-
-            //creating order and push it into firebase
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
                 Order o=new Order();
                 o.setTableNumber(table);
                 o.setOpen(true);
-                String uid=myRef1.getKey();
-                o.setId(uid);
                 o.setDish(d.getItem(position));
                 myRef1.push().setValue(o);
                 orders.add(o);
@@ -72,6 +71,46 @@ public class menu extends AppCompatActivity {
                 Toast.makeText(menu.this,"Order Accepted",Toast.LENGTH_LONG).show();
             }
         });
+//        adDish1.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                order o=new order();
+//                o.setTableNumber(table);
+//                o.setOpen(true);
+//                o.setDish(d.getItem(0));
+//                myRef1.push().setValue(o);
+//                orders.add(o);
+//                Toast.makeText(menu.this,"Order Accepted",Toast.LENGTH_LONG).show();
+//
+//            }
+//        });
+//
+//        adDish2.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                order o=new order();
+//                o.setTableNumber(table);
+//                o.setOpen(true);
+//                o.setDish(d.getItem(2));
+//                myRef1.push().setValue(o);
+//                orders.add(o);
+//                Toast.makeText(menu.this,"Order Accepted",Toast.LENGTH_LONG).show();
+//
+//            }
+//        });
+//        adDish3.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                order o=new order();
+//                o.setTableNumber(table);
+//                o.setOpen(true);
+//                o.setDish(d.getItem(3));
+//                myRef1.push().setValue(o);
+//                orders.add(o);
+//                Toast.makeText(menu.this,"Order Accepted",Toast.LENGTH_LONG).show();
+//
+//            }
+//        });
 
 
         myRef.child("DISH").addValueEventListener(new ValueEventListener(){
@@ -83,6 +122,7 @@ public class menu extends AppCompatActivity {
                 Iterable<DataSnapshot> children=dataSnapshot.getChildren();
                 for (DataSnapshot child:children) {
                     dishes.add(child.getValue(Dish.class));
+                    //System.out.println("added!");
                     d.notifyDataSetChanged();
 
                 }

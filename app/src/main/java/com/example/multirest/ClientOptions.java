@@ -14,7 +14,7 @@ import android.widget.Toast;
 import com.google.firebase.auth.FirebaseAuth;
 
 public class ClientOptions extends AppCompatActivity implements AdapterView.OnItemSelectedListener  {
-//var
+
     private Button signOut;
     private Button mButton;
     private Button OpenMenu;
@@ -37,13 +37,7 @@ public class ClientOptions extends AppCompatActivity implements AdapterView.OnIt
         signOut= (Button) findViewById(R.id.sign_out);
         mButton=(Button) findViewById(R.id.showMenu);
         callW=(Button) findViewById(R.id.button2);
-        callW.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Toast.makeText(ClientOptions.this,"Waiter is on the way!",Toast.LENGTH_LONG).show();
 
-            }
-        });
         mAuth = FirebaseAuth.getInstance();
         OpenMenu = (Button) findViewById(R.id.showMenu);
         OpenMenu.setOnClickListener(new View.OnClickListener(){
