@@ -40,11 +40,12 @@ public class menu extends AppCompatActivity {
     FirebaseDatabase database = FirebaseDatabase.getInstance();
     DatabaseReference myRef = database.getReference();
     DatabaseReference myRef1 = database.getReference();
+    DatabaseReference myRef2 = database.getReference();
 
     ArrayAdapter<Dish> d;
     ListView MyList;
     String table;
-    Table t=new Table(table);
+    Table t;
     static int i=0;
     ;
     @Override
@@ -52,6 +53,9 @@ public class menu extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu);
         myRef1=FirebaseDatabase.getInstance().getReference().child("Order");
+        myRef2=FirebaseDatabase.getInstance().getReference().child("Tables");
+        t =new Table(table);
+        t.setTableNume(table);
 
         MyList =(ListView) findViewById(R.id.MyMenu);
 
@@ -68,8 +72,8 @@ public class menu extends AppCompatActivity {
                 myRef1.child(o.getId()).setValue(o);
                 i++;
                 orders.add(o);
-                ArrayList <Order> orders =t.getTable();
-                orders.add(o);
+                t.getTable().add(o);
+                myRef2.child("Table" + " "+table).setValue(t);
 
                 Toast.makeText(menu.this,"Order Accepted",Toast.LENGTH_LONG).show();
 

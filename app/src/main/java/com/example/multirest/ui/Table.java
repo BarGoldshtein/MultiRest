@@ -5,12 +5,31 @@ import java.util.ArrayList;
 public class Table {
 
     private String tableNume;
-    private ArrayList <Order> table;
+    private ArrayList <Order> orderList;
+    private double bill;
+
 
     public  Table(String t){
         tableNume=t;
-        table=new ArrayList<Order>();
+        orderList=new ArrayList<Order>();
+        bill=0;
     }
+    public double getBill() {
+
+        return bill;
+    }
+
+    public void check(){
+        for (Order o: orderList){
+            bill +=o.getDish().getPrice();
+        }
+
+    }
+
+
+
+
+
 
 
     public String getTableNume() {
@@ -22,11 +41,11 @@ public class Table {
     }
 
     public ArrayList<Order> getTable() {
-        return table;
+        return orderList;
     }
 
     public void setTable(ArrayList<Order> table) {
-        this.table = table;
+        this.orderList = table;
     }
 
 
