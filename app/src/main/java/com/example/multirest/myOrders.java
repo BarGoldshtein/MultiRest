@@ -6,6 +6,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.multirest.ui.Dish;
 import com.example.multirest.ui.Order;
@@ -25,32 +27,41 @@ public class myOrders extends AppCompatActivity {
     String table;
     FirebaseDatabase database = FirebaseDatabase.getInstance();
     DatabaseReference myRef = database.getReference();
-
-
+    TextView bill;
+double sum;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         table=ClientOptions.getTable();
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_my_orders);
+        bill=(TextView)findViewById(R.id.textView8);
+
         MyList=(ListView) findViewById(R.id.myOrders);
         adpter=new ArrayAdapter<Order>(this,android.R.layout.simple_list_item_1,orders);
         MyList.setAdapter(adpter);
 
-
-        myRef.child("Tables").child("Table" + " "+table).addValueEventListener(new ValueEventListener(){
+        String tn="Table"+" "+table;
+        Table t=new Table(tn);
+        myRef.child("Tables").child(tn).child("table").addValueEventListener(new ValueEventListener(){
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                orders.clear();//!!!!!
+                orders.clear();
                 adpter.notifyDataSetChanged();
                 table=ClientOptions.getTable();
                 Iterable<DataSnapshot> children=dataSnapshot.getChildren();
-                for (DataSnapshot child:children) {
-                    orders.add(child.getValue(Order.class));
-                    //System.out.println("added!");
-                    adpter.notifyDataSetChanged();
 
+                for (DataSnapshot child:children) {
+
+                    Order o=new Order();
+                    o=(Order)(child.getValue(Order.class));
+                    if(o.isOpen()){
+                        orders.add(child.getValue(Order.class));
+                        sum+=child.getValue(Order.class).getPrice();                    }
+                    adpter.notifyDataSetChanged();
                 }
+                String ans=Double.toString(sum);
+                bill.setText(ans+"לתשלום");
             }
 
             @Override
@@ -61,6 +72,7 @@ public class myOrders extends AppCompatActivity {
         });
 
 
+        //Toast.makeText(this,ans,Toast.LENGTH_LONG).show();
 
     }
 }

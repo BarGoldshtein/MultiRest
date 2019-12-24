@@ -10,7 +10,9 @@ public class Order {
 
     }
 
-
+public double getPrice(){
+        return dish.getPrice();
+}
     public Order(String id,String t, Dish d){
         this.id=id;
         tableNumber=t;

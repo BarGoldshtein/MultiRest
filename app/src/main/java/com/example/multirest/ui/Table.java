@@ -6,7 +6,7 @@ public class Table {
 
     private String tableNume;
     private ArrayList <Order> orderList;
-    private double bill;
+    private int bill;
 
 
     public  Table(String t){
@@ -19,11 +19,11 @@ public class Table {
         return bill;
     }
 
-    public void check(){
+    public int check(){
         for (Order o: orderList){
             bill +=o.getDish().getPrice();
         }
-
+return bill;
     }
 
 
@@ -47,6 +47,8 @@ public class Table {
     public void setTable(ArrayList<Order> table) {
         this.orderList = table;
     }
+    public void add(Order o) {orderList.add(o);}
+    }
 
 
 
@@ -55,4 +57,3 @@ public class Table {
 
 
 
-}
