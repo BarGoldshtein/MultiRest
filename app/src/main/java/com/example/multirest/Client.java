@@ -27,7 +27,7 @@ import com.google.firebase.auth.GoogleAuthProvider;
 
 public class Client extends AppCompatActivity {
 
-
+    Button next;
     private SignInButton signIn;
 
     private  int RC_SIGN_IN=1;
@@ -46,8 +46,13 @@ public class Client extends AppCompatActivity {
         signIn=(SignInButton)findViewById(R.id.sign_in_button);
 
         mAuth = FirebaseAuth.getInstance();
-
-
+next=(Button)findViewById(R.id.button8);
+next.setOnClickListener(new View.OnClickListener() {
+    @Override
+    public void onClick(View v) {
+        open();
+    }
+});
         // Configure sign-in to request the user's ID, email address, and basic
 // profile. ID and basic profile are included in DEFAULT_SIGN_IN.
         GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)

@@ -1,25 +1,39 @@
 package com.example.multirest.ui;
 
-public class order {
+public class Order {
+    private String id;
     private String tableNumber;
     private Dish dish;
     private boolean isOpen;
 
-    public order(){
+    public Order(){
 
     }
 
-
-    public order(String t, Dish d){
+public double getPrice(){
+        return dish.getPrice();
+}
+    public Order(String id,String t, Dish d){
+        this.id=id;
         tableNumber=t;
         dish=new Dish(d);
         isOpen=true;
     }
-    public order(order t){
+    public Order(Order t){
+        id=t.id;
         tableNumber=t.tableNumber;
         dish=new Dish(t.dish);
         isOpen=t.isOpen;
     }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
 
     public String getTableNumber() {
         return tableNumber;

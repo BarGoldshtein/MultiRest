@@ -14,7 +14,7 @@
         android:id="@+id/button3"
         android:layout_width="225dp"
         android:layout_height="71dp"
-        android:text="הזמנת מקום"
+        android:text="ההזמנות שלי"
         android:textColor="@android:color/black"
         android:textSize="20sp"
         android:textStyle="bold"

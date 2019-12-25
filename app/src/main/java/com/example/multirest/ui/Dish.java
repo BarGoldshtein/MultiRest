@@ -16,12 +16,7 @@ public Dish(Dish d){
    price=d.price;
    desc=d.desc;
 }
-    public Dish(String n,double p,String d)
-    {
-        name=n;
-        price =p;
-        desc=d;
-    }
+
 
     public void setPrice(double p){
         price=p;
@@ -54,7 +49,6 @@ public String toString(){
     public String getName(){
         return name;
     }
-
 
 
 

@@ -19,6 +19,7 @@ public class ClientOptions extends AppCompatActivity implements AdapterView.OnIt
     private Button mButton;
     private Button OpenMenu;
     private Button callW;
+    private Button myOrders;
     FirebaseAuth mAuth;
     private static String text;
 
@@ -37,6 +38,7 @@ public class ClientOptions extends AppCompatActivity implements AdapterView.OnIt
         signOut= (Button) findViewById(R.id.sign_out);
         mButton=(Button) findViewById(R.id.showMenu);
         callW=(Button) findViewById(R.id.button2);
+        myOrders=(Button)findViewById(R.id.button3);
 
         mAuth = FirebaseAuth.getInstance();
         OpenMenu = (Button) findViewById(R.id.showMenu);
@@ -62,6 +64,13 @@ public class ClientOptions extends AppCompatActivity implements AdapterView.OnIt
                 openMenu();
             }
         });
+        myOrders.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openMyOrders();
+            }
+        });
+
 
 
 
@@ -81,6 +90,11 @@ public class ClientOptions extends AppCompatActivity implements AdapterView.OnIt
 
     public void openMenu(){
         Intent intent=new Intent(this,menu.class);
+        startActivity(intent);    }
+
+
+    public void openMyOrders(){
+        Intent intent=new Intent(this,myOrders.class);
         startActivity(intent);    }
 
 
