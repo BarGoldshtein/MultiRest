@@ -15,9 +15,10 @@
 
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="136dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:srcCompat="@drawable/tran"
-        tools:layout_editor_absoluteX="-16dp"
-        tools:layout_editor_absoluteY="104dp" />
+        tools:layout_editor_absoluteX="0dp" />
 
     <Button
         android:id="@+id/button11"
@@ -28,8 +29,12 @@
         android:layout_marginTop="212dp"
         android:text="עדכון תפריט"
         android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
 
     <Button
         android:id="@+id/button13"
@@ -38,10 +43,13 @@
         android:layout_marginStart="116dp"
         android:layout_marginLeft="116dp"
 
-        android:layout_marginBottom="368dp"
         android:text="צפה בהזמנות פתוחות"
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.443" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

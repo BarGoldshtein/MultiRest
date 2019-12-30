@@ -25,8 +25,7 @@ public class myOrders extends AppCompatActivity {
     ListView MyList;
     ArrayAdapter<Order> adpter;
     String table;
-    FirebaseDatabase database = FirebaseDatabase.getInstance();
-    DatabaseReference myRef = database.getReference();
+    DatabaseReference myRef = FirebaseDatabase.getInstance().getReference();
     TextView bill;
 double sum;
 
@@ -43,7 +42,7 @@ double sum;
 
         String tn="Table"+" "+table;
         Table t=new Table(tn);
-        myRef.child("Tables").child(tn).child("table").addValueEventListener(new ValueEventListener(){
+        myRef.child("Order").addValueEventListener(new ValueEventListener(){
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 orders.clear();
@@ -55,7 +54,7 @@ double sum;
 
                     Order o=new Order();
                     o=(Order)(child.getValue(Order.class));
-                    if(o.isOpen()){
+                    if(o.isOpen()&&o.getTableNumber().equals(table)){
                         orders.add(child.getValue(Order.class));
                         sum+=child.getValue(Order.class).getPrice();                    }
                     adpter.notifyDataSetChanged();
