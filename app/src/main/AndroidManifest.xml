@@ -3,8 +3,11 @@
     package="com.example.multirest">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
     <application
+
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -16,7 +19,7 @@
         <activity android:name=".menu" />
         <activity android:name=".AddDish" />
         <activity android:name=".OwnerOptions" />
-        <activity android:name=".ClientOptions" />
+        
         <activity android:name=".Owner" />
         <activity android:name=".Client" />
         <activity android:name=".MainActivity">
@@ -33,6 +36,38 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+
+        <activity android:name=".ClientOptions">
+            <intent-filter>
+                <action android:name="android.Intent.action.MAIN"/>
+                <action android:name="android.Intent.catagory.LAUNCHER"/>
+
+            </intent-filter>
+
+
+
+        </activity>
+        <provider
+            android:authorities="com.example.multirest.fileprovider"
+            android:name="androidx.core.content.FileProvider"
+
+            android:exported="false"
+
+            android:grantUriPermissions="true">
+
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths">
+
+            </meta-data>
+
+
+
+
+        </provider>
+
+
     </application>
 
 </manifest>
