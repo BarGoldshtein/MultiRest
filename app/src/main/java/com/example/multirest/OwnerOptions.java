@@ -20,7 +20,9 @@ public class OwnerOptions extends AppCompatActivity {
         updateDishs.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                moveToAdd();
+              openDialog();
+
+                //moveToAdd();
             }
         });
         openOrders=(Button) findViewById(R.id.button13);
@@ -32,7 +34,13 @@ public class OwnerOptions extends AppCompatActivity {
         });
 
     }
+
+    public void openDialog(){
+MyDialog dialog=new MyDialog();
+dialog.show(getSupportFragmentManager(),"MyDialog");
+    }
     public void moveToAdd(){
+
         Intent intent=new Intent(this, AddDish.class);
         startActivity(intent);
     }
