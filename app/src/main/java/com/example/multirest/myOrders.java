@@ -61,7 +61,7 @@ double sum;
                     adpter.notifyDataSetChanged();
                 }
                 String ans=Double.toString(sum);
-                bill.setText(ans+"לתשלום");
+                bill.setText("לתשלום:"+" "+ans+" "+"שח");
             }
 
             @Override
