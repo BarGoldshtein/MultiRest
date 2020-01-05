@@ -19,18 +19,18 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="4dp"
-            android:text="הזמנות פתוחות"
+            android:text="    הזמנות פתוחות  "
             android:textSize="30sp"
             android:textStyle="bold" />
 
         <TextView
             android:id="@+id/textView6"
-            android:layout_width="321dp"
-            android:layout_height="49dp"
+            android:layout_width="323dp"
+            android:layout_height="34dp"
             android:layout_marginStart="88dp"
             android:layout_marginLeft="88dp"
-            android:text="        לחץ על הזמנה לסגירה           "
-            android:textSize="14sp" />
+            android:text="                 לחץ על הזמנה לסגירה           "
+            android:textSize="16sp" />
 
         <ListView
             android:id="@+id/openO"
