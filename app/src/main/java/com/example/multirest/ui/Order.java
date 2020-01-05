@@ -64,7 +64,7 @@ public double getPrice(){
     public String toString() {
         return
                 "מספר שולחן:" +" "+ tableNumber  +" "+
-                        ", מנה:" +" "+ dish.toString() +" "
+                        "," +" "+ dish.toString() +" "
 
                 ;
     }

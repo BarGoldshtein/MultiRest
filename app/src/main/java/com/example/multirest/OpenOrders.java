@@ -28,7 +28,6 @@ public class
 OpenOrders extends AppCompatActivity  {
     private  ListView orders;
      LinkedList<Order>  myOrders=new LinkedList<>();
-    //ArrayAdapter<Order> adptr;
     FirebaseDatabase database = FirebaseDatabase.getInstance();
     DatabaseReference myRef = database.getReference();
     ArrayAdapter<Order> adpt;
@@ -83,6 +82,7 @@ OpenOrders extends AppCompatActivity  {
                 o.setDish(new Dish(temp.getDish()));
                 o.setTableNumber(temp.getTableNumber());
                 myRef.child("Order").child(o.getId()).setValue(o);
+               // myRef.child("Tables").child("Table "+o.getTableNumber()).child("orders").child(o.getId()).setValue(o);
                 adpt.notifyDataSetChanged();
                 Toast.makeText(parent.getContext(), "closed", Toast.LENGTH_SHORT).show();
             }
