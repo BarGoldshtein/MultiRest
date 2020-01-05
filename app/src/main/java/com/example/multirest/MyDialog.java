@@ -24,6 +24,8 @@ import com.example.multirest.ui.Dish;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+import java.util.concurrent.ExecutionException;
+
 public class MyDialog extends AppCompatDialogFragment {
     private EditText txtname;
     private EditText txtprice;
@@ -53,14 +55,20 @@ public class MyDialog extends AppCompatDialogFragment {
                 .setPositiveButton("אישור", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
+                        try {
                         double p=Double.parseDouble(txtprice.getText().toString().trim());
                         String n=txtname.getText().toString();
                         String des=txtdescription.getText().toString();
-                        d=new Dish();
-                        d.setName(n);
-                        d.setPrice(p);
-                        d.setDesc(des);
-                        myRef.push().setValue(d);
+
+
+                           d = new Dish();
+                           d.setName(n);
+                           d.setPrice(p);
+                           d.setDesc(des);
+                           myRef.push().setValue(d);
+                       }catch (Exception E){
+                       }
+
                     }
                 });
 

@@ -12,6 +12,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.multirest.ui.Dish;
@@ -35,6 +36,8 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import org.w3c.dom.Text;
+
 import java.io.Console;
 import java.util.ArrayList;
 public class Owner extends AppCompatActivity {
@@ -44,7 +47,7 @@ public class Owner extends AppCompatActivity {
     GoogleSignInClient mGoogleSignInClient;
     private  String TAG ="Owner";
     private FirebaseAuth mAuth;
-
+    TextView s;
     private static ArrayList<String> owners = new ArrayList<String>();
     String id;
     EditText textid;
@@ -62,6 +65,7 @@ public class Owner extends AppCompatActivity {
         mAuth = FirebaseAuth.getInstance();
         textid=(EditText) findViewById(R.id.textid);
         submitbuttom=(Button) findViewById(R.id.textidok);
+        s=(TextView)findViewById(R.id.textView13);
 next=(Button) findViewById(R.id.button9);
 next.setOnClickListener(new View.OnClickListener() {
     @Override
@@ -83,6 +87,9 @@ next.setOnClickListener(new View.OnClickListener() {
                     Toast.makeText(Owner.this , "this is not a vaild number.", Toast.LENGTH_LONG).show();
 
                 }
+
+s.setText(":לכניסה באמצעות גוגל לחץ כאן");
+
             }
         });
 
