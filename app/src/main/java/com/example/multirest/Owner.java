@@ -88,7 +88,7 @@ next.setOnClickListener(new View.OnClickListener() {
 
                 }
 
-s.setText(":לכניסה באמצעות גוגל לחץ כאן");
+s.setText("לכניסה באמצעות גוגל לחץ כאן:");
 
             }
         });
