@@ -28,18 +28,18 @@
 
     <Button
         android:id="@+id/camera"
-        android:layout_width="209dp"
-        android:layout_height="63dp"
-        android:text="צלם"
+        android:layout_width="225dp"
+        android:layout_height="71dp"
+        android:text="צלם מנה"
         android:textColor="@android:color/black"
         android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.815"
+        app:layout_constraintHorizontal_bias="0.854"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.605" />
+        app:layout_constraintVertical_bias="0.627" />
 
     <ImageView
         android:id="@+id/image"
@@ -64,6 +64,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.091" />
 
+
     <ImageView
         android:id="@+id/imageView2"
 
@@ -76,7 +77,6 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0"
         app:srcCompat="@drawable/tran" />
-
 
     <Button
         android:id="@+id/showMenu"
