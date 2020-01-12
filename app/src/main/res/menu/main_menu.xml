@@ -5,9 +5,6 @@
 
     </item>
 
-    <item android:id="@+id/terms"
-        android:title="תנאי שימוש">
 
-    </item>
 
 </menu>

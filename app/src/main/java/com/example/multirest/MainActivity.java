@@ -67,13 +67,6 @@ private Button buttonOwner;
         }
 
 
-        if(item.getItemId() == R.id.terms){
-            Toast.makeText(this, "terms" , Toast.LENGTH_LONG).show();
-
-            Intent intent=new Intent(this,terms.class);
-            startActivity(intent);
-
-        }
 
 
 
