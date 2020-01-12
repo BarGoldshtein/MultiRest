@@ -25,8 +25,8 @@
 
         <TextView
             android:id="@+id/textView6"
-            android:layout_width="323dp"
-            android:layout_height="34dp"
+            android:layout_width="299dp"
+            android:layout_height="37dp"
             android:layout_marginStart="88dp"
             android:layout_marginLeft="88dp"
             android:text="                 לחץ על הזמנה לסגירה           "

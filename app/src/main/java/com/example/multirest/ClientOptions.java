@@ -68,7 +68,6 @@ public class ClientOptions extends AppCompatActivity implements AdapterView.OnIt
 
             }
         });
-        callW=(Button) findViewById(R.id.button2);
         myOrders=(Button)findViewById(R.id.button3);
 
         mAuth = FirebaseAuth.getInstance();

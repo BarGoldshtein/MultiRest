@@ -54,7 +54,6 @@ public class Owner extends AppCompatActivity {
     private static  DatabaseReference rootRef = FirebaseDatabase.getInstance().getReference();
     private static  DatabaseReference ownersRef = rootRef.child("owners");
     Button submitbuttom;
-    Button next;
 
 
 @Override
@@ -66,13 +65,7 @@ public class Owner extends AppCompatActivity {
         textid=(EditText) findViewById(R.id.textid);
         submitbuttom=(Button) findViewById(R.id.textidok);
         s=(TextView)findViewById(R.id.textView13);
-next=(Button) findViewById(R.id.button9);
-next.setOnClickListener(new View.OnClickListener() {
-    @Override
-    public void onClick(View v) {
-        open();
-    }
-});
+
         submitbuttom.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
