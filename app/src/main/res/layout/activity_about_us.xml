@@ -22,18 +22,7 @@
         app:layout_constraintVertical_bias="0.351" />
 
 
-    <Button
-        android:id="@+id/back"
-        android:layout_width="158dp"
-        android:layout_height="50dp"
-        android:background="@drawable/button_backgrounds"
-        android:text="חזור"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.099"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.935" />
+
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
