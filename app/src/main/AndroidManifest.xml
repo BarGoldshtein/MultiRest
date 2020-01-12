@@ -13,7 +13,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".AboutUs"></activity>
+        <activity android:name=".terms"></activity>
+        <activity android:name=".AboutUs" />
         <activity android:name=".SendNot" />
         <activity android:name=".myOrders" />
         <activity android:name=".OpenOrders" />
@@ -50,7 +51,7 @@
             android:grantUriPermissions="true">
             <meta-data
                 android:name="android.support.FILE_PROVIDER_PATHS"
-                android:resource="@xml/file_paths"></meta-data>
+                android:resource="@xml/file_paths" />
         </provider>
     </application>
 
